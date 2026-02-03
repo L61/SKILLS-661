@@ -4,10 +4,13 @@
   "description": "Universal skill manager for vibe coding tools - CLI tool",
   "main": "bin/skill-manager.js",
   "bin": {
-    "skill-manager": "bin/skill-manager.js"
+    "skill-manager": "bin/skill-manager.js",
+    "install-skill": "bin/install.js"
   },
   "scripts": {
-    "test": "node bin/skill-manager.js analyze"
+    "test": "node bin/skill-manager.js analyze",
+    "postinstall": "node bin/install.js",
+    "install-skill": "node bin/install.js"
   },
   "keywords": ["claude-code", "opencode", "skills", "cli", "windows", "linux", "mac"],
   "author": "L61",
