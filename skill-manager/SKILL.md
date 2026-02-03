@@ -1,6 +1,6 @@
 ---
 name: skill-manager
-description: Analyze and clean up duplicate skills across vibe coding tools. Use when user asks to "analyze skills", "clean up skills", "find duplicate skills", "manage skills", "list skills", "backup skills", or "remove duplicate skills". Auto-detects Claude Code, OpenCode, Cursor, Copilot, and other tools. Generates comparison reports and safe removal commands. Examples: user: "Analyze my skills" → run scripts/analyze-interactive.sh; user: "Clean up duplicate skills" → check references/categories.md then suggest removals; user: "How many skills do I have?" → detect tools and count skills.
+description: Analyze and clean up duplicate skills across vibe coding tools. Use when user asks to analyze skills, find duplicates, or clean up their skill collection.
 ---
 
 # Skill Manager
