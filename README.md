@@ -2,11 +2,35 @@
 
 Personal Claude Code / OpenCode / Cursor Skills Collection
 
-## Skills
+## 📦 Installation (Standard Way)
+
+**Recommended:** Install via `skills` CLI (from GitHub):
+
+```bash
+# Install skill-manager
+npx skills add https://github.com/L61/SKILLS-661 --skill skill-manager
+
+# Install skill-publisher  
+npx skills add https://github.com/L61/SKILLS-661 --skill skill-publisher
+```
+
+This is the **standard way** to install Skills for Claude Code, OpenCode, Cursor, and other agents.
+
+## 🚀 Quick Start
+
+After installation, use in Claude Code:
+
+```
+"分析我的技能"           # Uses skill-manager
+"帮我发布这个技能"       # Uses skill-publisher
+```
+
+## 📚 Skills
 
 ### skill-manager
-Universal skill manager for all vibe coding tools (Claude Code, OpenCode, Cursor, Copilot, etc.)
+Universal skill manager for vibe coding tools.
 
+**Features:**
 - Analyze installed skills
 - Detect duplicates
 - Interactive cleanup
@@ -14,38 +38,65 @@ Universal skill manager for all vibe coding tools (Claude Code, OpenCode, Cursor
 
 **Usage:**
 ```bash
-cd skill-manager
-bash bin/skill-manager analyze
+# Via skills CLI (Recommended)
+npx skills add https://github.com/L61/SKILLS-661 --skill skill-manager
+
+# Then in Claude Code:
+"分析我的技能"
 ```
 
-**Or with npx (after npm publish):**
+### skill-publisher
+Publish and distribute skills to GitHub.
+
+**Features:**
+- Validate skill structure
+- Step-by-step publish guide
+- Pre-flight checklist
+- GitHub & npm publishing
+
+**Usage:**
 ```bash
-npx skill-manager analyze
+# Via skills CLI (Recommended)
+npx skills add https://github.com/L61/SKILLS-661 --skill skill-publisher
+
+# Then in Claude Code:
+"检查我的技能是否可以发布"
 ```
 
-## Installation
+## 🔧 Advanced: CLI Tools (Optional)
+
+Some skills include CLI tools for command-line usage. These can be installed via npm:
 
 ```bash
-# Clone to your skills directory
-git clone https://github.com/L61/skill-manager.git ~/.claude/skills/SKILLS-661
+# Optional: Install CLI tool globally
+npm install -g @l61/skill-manager
 
-# Or for OpenCode
-git clone https://github.com/L61/skill-manager.git ~/.config/opencode/skills/SKILLS-661
+# Then use directly
+skill-manager analyze
 ```
 
-## Adding New Skills
+**Note:** This is **optional**. The standard way is using `npx skills add` above.
 
-Create new skill directories under this collection:
+## 📁 Adding New Skills
+
+Create new skill directories:
 
 ```
 SKILLS-661/
 ├── skill-manager/
+├── skill-publisher/
 ├── skill-your-new-skill/
 │   ├── SKILL.md
-│   ├── README.md
-│   └── ...
+│   ├── workflows/
+│   ├── references/
+│   └── scripts/
 └── README.md
 ```
+
+## 📖 Documentation
+
+- [skill-manager/](skill-manager/) - Skill management
+- [skill-publisher/](skill-publisher/) - Publishing guide
 
 ## License
 

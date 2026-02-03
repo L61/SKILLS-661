@@ -1,1 +1,21 @@
-{"type": "commonjs"}
+{
+  "name": "@l61/skill-publisher",
+  "version": "1.0.0",
+  "description": "Publish and distribute Claude Code skills to GitHub and npm",
+  "main": "scripts/validate.js",
+  "bin": {
+    "skill-publisher": "scripts/validate.js"
+  },
+  "scripts": {
+    "test": "node scripts/validate.js"
+  },
+  "keywords": ["claude-code", "skills", "publish", "cli"],
+  "author": "L61",
+  "license": "MIT",
+  "files": [
+    "SKILL.md",
+    "workflows/",
+    "references/",
+    "scripts/"
+  ]
+}
