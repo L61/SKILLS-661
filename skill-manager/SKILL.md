@@ -1,80 +1,107 @@
 ---
 name: skill-manager
-description: Analyze and clean up duplicate skills across vibe coding tools. Use when user asks to "analyze skills", "clean up skills", "find duplicate skills", "manage skills", "list skills", "backup skills", or "remove duplicate skills". Auto-detects Claude Code, OpenCode, Cursor, Copilot, and other tools. Generates comparison reports and safe removal commands.
+description: Analyze and clean up duplicate skills across vibe coding tools. Use when user asks to "analyze skills", "clean up skills", "find duplicate skills", "manage skills", "list skills", "backup skills", or "remove duplicate skills". Auto-detects Claude Code, OpenCode, Cursor, Copilot, and other tools. Generates comparison reports and safe removal commands. Examples: user: "Analyze my skills" → run scripts/analyze-interactive.sh; user: "Clean up duplicate skills" → check references/categories.md then suggest removals; user: "How many skills do I have?" → detect tools and count skills.
 ---
 
 # Skill Manager
 
 Analyze skill inventory, detect duplicates, and clean up safely across multiple AI coding tools.
 
-## Quick Start
+## When to Use
 
-Run the analysis script:
+Use this skill when user wants to:
+- Analyze their skill collection
+- Find and remove duplicate skills
+- Backup skills before cleanup
+- List all installed skills
 
-```bash
-bash scripts/analyze-interactive.sh
+## Example Workflow
+
+### Example 1: Analyzing Skills
+
+```
+user: "Analyze my skills"
+→ Detect installed tools (Claude Code, OpenCode, etc.)
+→ Run: bash scripts/analyze-interactive.sh
+→ Show skill count per tool
+→ Identify duplicate categories
+→ Suggest: "Keep agent-builder, remove skill-creator"
 ```
 
-## Core Workflow
+### Example 2: Cleaning Up Duplicates
 
-1. **Detect installed tools** - Automatically find Claude Code, OpenCode, Cursor, etc.
-2. **Analyze skills** - Inventory all installed skills
-3. **Identify duplicates** - Group by category (see [references/categories.md](references/categories.md))
-4. **Generate report** - Create Markdown comparison table
-5. **Interactive cleanup** - Remove duplicates with backup
+```
+user: "Clean up my duplicate skills"
+→ Review references/categories.md
+→ Show duplicate table:
+  Category: Agent Creation
+  - Keep: agent-builder
+  - Remove: agent-identifier, skill-creator, skill-writer
+→ Confirm: "Remove these 3 skills?"
+→ Run backup first
+→ Execute: npx skills remove -g agent-identifier skill-creator skill-writer
+```
+
+### Example 3: Listing Skills
+
+```
+user: "List all my skills"
+→ Detect tool: "Found Claude Code at ~/.claude/skills/"
+→ List skills by category:
+  Agent: agent-builder, planner
+  Debug: debugging, test-driven-development
+  Web: react-best-practices, web-frameworks
+```
 
 ## Commands
 
-### Analyze Skills
+### Analyze
 
 ```bash
 bash scripts/analyze-interactive.sh
 ```
 
-Analyzes skills and shows:
+Shows:
 - Total skill count per tool
 - Duplicate categories
 - Removal recommendations
 
-### List Skills
+### List
 
 ```bash
 bash scripts/skill-manager-cli list
 ```
 
-### Backup Skills
+### Backup
 
 ```bash
 bash scripts/skill-manager-cli backup
 ```
 
-Backups saved to: `~/.skill-manager/backups/YYYYMMDD_HHMMSS/`
+Saves to: `~/.skill-manager/backups/YYYYMMDD_HHMMSS/`
 
 ## Duplicate Categories
 
-Major duplicate groups to check:
+Check these groups (see [references/categories.md](references/categories.md)):
 
-**Agent Creation** - Keep `agent-builder`, remove others  
-**Planning** - Keep `planner` + `subagent-driven-development`  
-**Debugging** - Keep `debugging` (parent skill)  
-**MCP** - Keep `mcp-builder` + `mcp-management`  
+**Agent Creation** - Keep `agent-builder`, remove others
+**Planning** - Keep `planner` + `subagent-driven-development`
+**Debugging** - Keep `debugging`
+**MCP** - Keep `mcp-builder` + `mcp-management`
 **Frontend** - Keep `react-best-practices` + `web-frameworks`
-
-See [references/categories.md](references/categories.md) for complete mapping.
 
 ## Safety Checklist
 
-Before removing skills:
+Before removing:
 
 - [ ] Run backup: `bash scripts/skill-manager-cli backup`
 - [ ] Review [references/categories.md](references/categories.md)
-- [ ] Verify removal commands: `npx skills remove -g [skill-name]`
-- [ ] Test after each batch removal
+- [ ] Verify: `npx skills remove -g [skill-name]`
+- [ ] Test after each batch
 
 ## Detected Tools
 
-Auto-detects skills in:
-
+Auto-detects:
 - `~/.claude/skills/` (Claude Code)
 - `~/.config/opencode/skills/` (OpenCode)
 - `~/.cursor/skills/` (Cursor)
@@ -82,10 +109,10 @@ Auto-detects skills in:
 
 ## Output
 
-Generates Markdown report with:
+Generates:
 - Skill inventory table
-- Category breakdown  
+- Category breakdown
 - Duplicate comparison
 - Safe removal commands
 
-Reports saved to: `~/.skill-manager/reports/`
+Reports: `~/.skill-manager/reports/`
