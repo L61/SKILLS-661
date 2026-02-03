@@ -1,0 +1,17 @@
+{
+  "name": "@l61/skill-manager",
+  "version": "1.0.0",
+  "description": "Universal skill manager for vibe coding tools - CLI tool",
+  "bin": "scripts/skill-manager-cli",
+  "scripts": {
+    "test": "echo 'Run: skill-manager analyze'"
+  },
+  "keywords": ["claude-code", "opencode", "skills", "cli"],
+  "author": "L61",
+  "license": "MIT",
+  "files": [
+    "scripts/",
+    "references/",
+    "SKILL.md"
+  ]
+}
