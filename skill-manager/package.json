@@ -1,0 +1,29 @@
+{
+  "name": "skill-manager",
+  "version": "1.0.0",
+  "description": "Universal skill manager for vibe coding tools (Claude Code, OpenCode, Cursor, etc.)",
+  "bin": {
+    "skill-manager": "./bin/skill-manager"
+  },
+  "scripts": {
+    "analyze": "bash scripts/analyze-interactive.sh",
+    "clean": "echo 'Run: skill-manager clean'"
+  },
+  "keywords": [
+    "claude-code",
+    "opencode", 
+    "cursor",
+    "skills",
+    "ai-coding",
+    "vibe-coding"
+  ],
+  "author": "L61",
+  "license": "MIT",
+  "preferGlobal": true,
+  "files": [
+    "bin/",
+    "scripts/",
+    "SKILL.md",
+    "README.md"
+  ]
+}

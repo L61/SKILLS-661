@@ -1,0 +1,90 @@
+#!/bin/bash
+# Skill Manager - Universal tool for managing vibe coding skills
+# Works with: Claude Code, OpenCode, Cursor, Copilot, and more
+
+set -e
+
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+CYAN='\033[0;36m'
+NC='\033[0m'
+
+# Detect tool
+TOOL=""
+SKILL_PATH=""
+
+detect_tool() {
+    # Check for various tools
+    if [ -d "$HOME/.claude/skills" ]; then
+        TOOL="claude-code"
+        SKILL_PATH="$HOME/.claude/skills"
+    elif [ -d "$HOME/.config/opencode/skills" ]; then
+        TOOL="opencode"
+        SKILL_PATH="$HOME/.config/opencode/skills"
+    elif [ -d "$HOME/.cursor/skills" ]; then
+        TOOL="cursor"
+        SKILL_PATH="$HOME/.cursor/skills"
+    elif [ -d "$HOME/.copilot/skills" ]; then
+        TOOL="copilot"
+        SKILL_PATH="$HOME/.copilot/skills"
+    else
+        echo -e "${RED}No supported tool detected${NC}"
+        exit 1
+    fi
+}
+
+# Show help
+show_help() {
+    echo -e "${BLUE}Skill Manager${NC} - Universal skill management"
+    echo ""
+    echo "Usage: skill-manager [command]"
+    echo ""
+    echo "Commands:"
+    echo "  analyze      Analyze installed skills"
+    echo "  clean        Clean up duplicate skills"
+    echo "  list         List all skills"
+    echo "  backup       Backup skills"
+    echo "  restore      Restore from backup"
+    echo "  help         Show this help"
+    echo ""
+}
+
+# Main
+main() {
+    detect_tool
+    
+    case "${1:-analyze}" in
+        analyze)
+            bash "$(dirname "$0")/../scripts/analyze-interactive.sh"
+            ;;
+        clean)
+            echo "Run: npx skills remove -g [skill-name]"
+            ;;
+        list)
+            echo -e "${CYAN}Skills in $TOOL:${NC}"
+            ls -1 "$SKILL_PATH" 2>/dev/null || echo "No skills found"
+            ;;
+        backup)
+            backup_dir="$HOME/.skill-manager/backups/$(date +%Y%m%d_%H%M%S)"
+            mkdir -p "$backup_dir"
+            cp -r "$SKILL_PATH" "$backup_dir/"
+            echo -e "${GREEN}Backed up to: $backup_dir${NC}"
+            ;;
+        restore)
+            echo "Restore from backup directory"
+            ;;
+        help|--help|-h)
+            show_help
+            ;;
+        *)
+            echo "Unknown command: $1"
+            show_help
+            exit 1
+            ;;
+    esac
+}
+
+main "$@"
