@@ -58,7 +58,7 @@ main() {
     
     case "${1:-analyze}" in
         analyze)
-            bash "$(dirname "$0")/../scripts/analyze-interactive.sh"
+            bash "$(dirname "$0")/analyze-interactive.sh"
             ;;
         clean)
             echo "Run: npx skills remove -g [skill-name]"
