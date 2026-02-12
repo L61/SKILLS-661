@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Memory Autopilot"
+  short_description: "Set up trigger-based project memory for AI collaboration"
+  default_prompt: "Set up a project-scoped memory system with triggers, files, and reporting conventions."

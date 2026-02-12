@@ -12,6 +12,9 @@ npx skills add https://github.com/L61/SKILLS-661 --skill skill-manager
 
 # Install skill-publisher  
 npx skills add https://github.com/L61/SKILLS-661 --skill skill-publisher
+
+# Install project-memory-autopilot
+npx skills add https://github.com/L61/SKILLS-661 --skill project-memory-autopilot
 ```
 
 This is the **standard way** to install Skills for Claude Code, OpenCode, Cursor, and other agents.
@@ -63,6 +66,24 @@ npx skills add https://github.com/L61/SKILLS-661 --skill skill-publisher
 "检查我的技能是否可以发布"
 ```
 
+### project-memory-autopilot
+Build and maintain a project-scoped external memory system for AI collaboration.
+
+**Features:**
+- Bootstrap project memory files
+- Trigger-based memory update policy
+- Decision log template and protocol snippets
+- Cross-runtime paths (Codex/Claude/OpenCode)
+
+**Usage:**
+```bash
+# Via skills CLI (Recommended)
+npx skills add https://github.com/L61/SKILLS-661 --skill project-memory-autopilot
+
+# Then in your agent:
+"Set up project memory for this repo"
+```
+
 ## 🔧 Advanced: CLI Tools (Optional)
 
 Some skills include CLI tools for command-line usage. These can be installed via npm:
@@ -85,6 +106,7 @@ Create new skill directories:
 SKILLS-661/
 ├── skill-manager/
 ├── skill-publisher/
+├── project-memory-autopilot/
 ├── skill-your-new-skill/
 │   ├── SKILL.md
 │   ├── workflows/
