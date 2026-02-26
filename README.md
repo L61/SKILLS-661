@@ -2,24 +2,29 @@
 
 Personal Claude Code / OpenCode / Cursor Skills Collection
 
-## 📦 Installation (Standard Way)
+---
 
-**Recommended:** Install via `skills` CLI (from GitHub):
+## Installation
+
+Install via `skills` CLI:
 
 ```bash
 # Install skill-manager
 npx skills add https://github.com/L61/SKILLS-661 --skill skill-manager
 
-# Install skill-publisher  
+# Install skill-publisher
 npx skills add https://github.com/L61/SKILLS-661 --skill skill-publisher
 
 # Install project-memory-autopilot
 npx skills add https://github.com/L61/SKILLS-661 --skill project-memory-autopilot
+
+# Install stardust-lumos-ui
+npx skills add https://github.com/L61/SKILLS-661 --skill stardust-lumos-ui
 ```
 
-This is the **standard way** to install Skills for Claude Code, OpenCode, Cursor, and other agents.
+---
 
-## 🚀 Quick Start
+## Quick Start
 
 After installation, use in Claude Code:
 
@@ -28,9 +33,12 @@ After installation, use in Claude Code:
 "帮我发布这个技能"       # Uses skill-publisher
 ```
 
-## 📚 Skills
+---
+
+## Skills
 
 ### skill-manager
+
 Universal skill manager for vibe coding tools.
 
 **Features:**
@@ -41,32 +49,40 @@ Universal skill manager for vibe coding tools.
 
 **Usage:**
 ```bash
-# Via skills CLI (Recommended)
 npx skills add https://github.com/L61/SKILLS-661 --skill skill-manager
+```
 
-# Then in Claude Code:
+Then in Claude Code:
+```
 "分析我的技能"
 ```
 
+---
+
 ### skill-publisher
+
 Publish and distribute skills to GitHub.
 
 **Features:**
 - Validate skill structure
 - Step-by-step publish guide
 - Pre-flight checklist
-- GitHub & npm publishing
+- GitHub and npm publishing
 
 **Usage:**
 ```bash
-# Via skills CLI (Recommended)
 npx skills add https://github.com/L61/SKILLS-661 --skill skill-publisher
+```
 
-# Then in Claude Code:
+Then in Claude Code:
+```
 "检查我的技能是否可以发布"
 ```
 
+---
+
 ### project-memory-autopilot
+
 Build and maintain a project-scoped external memory system for AI collaboration.
 
 **Features:**
@@ -77,16 +93,41 @@ Build and maintain a project-scoped external memory system for AI collaboration.
 
 **Usage:**
 ```bash
-# Via skills CLI (Recommended)
 npx skills add https://github.com/L61/SKILLS-661 --skill project-memory-autopilot
+```
 
-# Then in your agent:
+Then in your agent:
+```
 "Set up project memory for this repo"
 ```
 
-## 🔧 Advanced: CLI Tools (Optional)
+---
 
-Some skills include CLI tools for command-line usage. These can be installed via npm:
+### stardust-lumos-ui
+
+Deep space themed UI with liquid glass design.
+
+**Features:**
+- Deep universe background gradient
+- Breathing cosmic dust particles
+- Liquid glass card design
+- Complete CSS and HTML templates
+
+**Usage:**
+```bash
+npx skills add https://github.com/L61/SKILLS-661 --skill stardust-lumos-ui
+```
+
+Then in Claude Code:
+```
+"使用星尘流光主题创建页面"
+```
+
+---
+
+## Advanced: CLI Tools (Optional)
+
+Some skills include CLI tools for command-line usage:
 
 ```bash
 # Optional: Install CLI tool globally
@@ -96,9 +137,11 @@ npm install -g @l61/skill-manager
 skill-manager analyze
 ```
 
-**Note:** This is **optional**. The standard way is using `npx skills add` above.
+Note: This is optional. The standard way is using `npx skills add` above.
 
-## 📁 Adding New Skills
+---
+
+## Adding New Skills
 
 Create new skill directories:
 
@@ -107,6 +150,7 @@ SKILLS-661/
 ├── skill-manager/
 ├── skill-publisher/
 ├── project-memory-autopilot/
+├── stardust-lumos-ui/
 ├── skill-your-new-skill/
 │   ├── SKILL.md
 │   ├── workflows/
@@ -115,10 +159,15 @@ SKILLS-661/
 └── README.md
 ```
 
-## 📖 Documentation
+---
+
+## Documentation
 
 - [skill-manager/](skill-manager/) - Skill management
 - [skill-publisher/](skill-publisher/) - Publishing guide
+- [stardust-lumos-ui/](stardust-lumos-ui/) - UI design system
+
+---
 
 ## License
 
