@@ -1,19 +1,25 @@
-# Stardust Lumos UI / 星尘流光主题
+# Stardust Lumos UI
 
-深邃宇宙风格 + 液态玻璃设计的现代UI主题。
+Deep space themed UI with liquid glass design. A modern, immersive interface combining cosmic aesthetics with translucent glass-morphism effects.
 
-## 视觉特征
+---
 
-- **深邃背景**：深蓝到黑的径向渐变，营造宇宙深空感
-- **星尘粒子**：80+ 呼吸脉动的微光尘埃
-- **闪烁星辰**：150+ 随机分布的闪烁星星
-- **漂浮星云**：3团朦胧光晕缓慢漂移
-- **液态玻璃**：深色半透明卡片，带光泽边框和内发光
+## Visual Characteristics
 
-## 核心CSS
+| Element | Description |
+|---------|-------------|
+| **Deep Background** | Radial gradient from deep blue to black, creating cosmic void sensation |
+| **Stardust Particles** | 80+ breathing, pulsating micro-light dust particles |
+| **Twinkling Stars** | 150+ randomly distributed stars with shimmer animation |
+| **Floating Nebulae** | 3 misty light halos drifting slowly across the viewport |
+| **Liquid Glass** | Dark semi-transparent cards with glossy borders and inner glow |
+
+---
+
+## Core CSS
 
 ```css
-/* ===== 基础背景 ===== */
+/* ===== Base Background ===== */
 body {
     margin: 0;
     min-height: 100vh;
@@ -22,7 +28,7 @@ body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* ===== 星星 ===== */
+/* ===== Stars ===== */
 .star {
     position: absolute;
     background: white;
@@ -36,7 +42,7 @@ body {
     50% { opacity: 0.2; transform: scale(0.8); }
 }
 
-/* ===== 宇宙尘埃（呼吸效果）===== */
+/* ===== Cosmic Dust (Breathing Effect) ===== */
 .dust-particle {
     position: absolute;
     border-radius: 50%;
@@ -64,7 +70,7 @@ body {
     75% { transform: translate(var(--move-x3), var(--move-y3)); }
 }
 
-/* ===== 星云 ===== */
+/* ===== Nebula ===== */
 .nebula {
     position: fixed;
     border-radius: 50%;
@@ -80,7 +86,7 @@ body {
     66% { transform: translate(-20px, 20px); }
 }
 
-/* ===== 液态玻璃卡片 ===== */
+/* ===== Liquid Glass Cards ===== */
 .glass {
     background: rgba(20, 30, 48, 0.4);
     backdrop-filter: blur(20px) saturate(150%);
@@ -94,7 +100,7 @@ body {
     overflow: hidden;
 }
 
-/* 玻璃反光 */
+/* Glass reflection highlight */
 .glass::before {
     content: '';
     position: absolute;
@@ -106,7 +112,7 @@ body {
     pointer-events: none;
 }
 
-/* 玻璃悬浮效果 */
+/* Glass hover effect */
 .glass-hover {
     transition: all 0.3s ease;
 }
@@ -118,12 +124,12 @@ body {
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
-/* ===== 荧光文字 ===== */
+/* ===== Glowing Text ===== */
 .glow-text {
     text-shadow: 0 0 10px rgba(100, 200, 255, 0.5);
 }
 
-/* ===== 状态指示器 ===== */
+/* ===== Status Indicator ===== */
 .status-dot {
     width: 8px;
     height: 8px;
@@ -139,11 +145,13 @@ body {
 }
 ```
 
-## 完整HTML模板
+---
+
+## Complete HTML Template
 
 ```html
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -151,31 +159,31 @@ body {
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* [粘贴上方完整CSS] */
+        /* Paste the CSS above here */
     </style>
 </head>
 <body class="relative">
-    <!-- 星星背景 -->
+    <!-- Starfield background -->
     <div class="stars" id="stars"></div>
 
-    <!-- 宇宙尘埃 -->
+    <!-- Cosmic dust particles -->
     <div class="cosmic-dust" id="cosmicDust"></div>
 
-    <!-- 星云 -->
+    <!-- Nebula clouds -->
     <div class="nebula" style="width:600px;height:600px;background:radial-gradient(circle,#4a90d9 0%,transparent 70%);top:10%;left:-10%;"></div>
     <div class="nebula" style="width:500px;height:500px;background:radial-gradient(circle,#6b4c9a 0%,transparent 70%);bottom:10%;right:-5%;animation-direction:reverse;"></div>
 
-    <!-- 主内容 -->
+    <!-- Main content -->
     <div class="relative z-10">
-        <!-- 在这里放置你的内容 -->
+        <!-- Your content here -->
         <div class="glass rounded-2xl p-6 max-w-4xl mx-auto mt-20">
-            <h1 class="text-2xl font-bold text-white glow-text">星尘流光主题</h1>
+            <h1 class="text-2xl font-bold text-white glow-text">Stardust Lumos Theme</h1>
         </div>
     </div>
 
-    <!-- 生成动态元素 -->
+    <!-- Generate dynamic elements -->
     <script>
-        // 生成星星
+        // Generate stars
         const starsContainer = document.getElementById('stars');
         for (let i = 0; i < 150; i++) {
             const star = document.createElement('div');
@@ -192,7 +200,7 @@ body {
             starsContainer.appendChild(star);
         }
 
-        // 生成尘埃
+        // Generate dust particles
         const dustContainer = document.getElementById('cosmicDust');
         for (let i = 0; i < 80; i++) {
             const dust = document.createElement('div');
@@ -223,17 +231,19 @@ body {
 </html>
 ```
 
-## 使用指南
+---
 
-### 基础卡片
+## Usage Guide
+
+### Basic Card
 ```html
 <div class="glass glass-hover rounded-2xl p-6">
-    <h2 class="text-xl font-bold text-white glow-text">标题</h2>
-    <p class="text-gray-400">内容文字</p>
+    <h2 class="text-xl font-bold text-white glow-text">Title</h2>
+    <p class="text-gray-400">Content text goes here</p>
 </div>
 ```
 
-### 导航栏
+### Navigation Bar
 ```html
 <nav class="fixed top-6 left-6 right-6 z-50">
     <div class="glass glass-hover rounded-2xl px-6 py-4 max-w-6xl mx-auto">
@@ -242,13 +252,59 @@ body {
 </nav>
 ```
 
-### 主色调
-- 背景深色文字：`text-white` + `glow-text`
-- 次要文字：`text-gray-400`
-- 弱化文字：`text-gray-500`
-- 强调色：青色 `text-cyan-400` / `bg-cyan-500`
-- 成功状态：绿色 `#4ade80`
+### Status Badge
+```html
+<div class="flex items-center gap-2 px-4 py-2 glass rounded-full">
+    <div class="status-dot"></div>
+    <span class="text-sm font-medium text-gray-300">Active</span>
+</div>
+```
 
-## 文件位置
+---
 
-示例项目：`F:/coding/Nginx/nginx-1.26.3/html/index.html`
+## Color Palette
+
+| Purpose | Class / Value | Usage |
+|---------|---------------|-------|
+| Primary text | `text-white` + `glow-text` | Headlines, important text |
+| Secondary text | `text-gray-400` | Body text, descriptions |
+| Muted text | `text-gray-500` | Timestamps, hints |
+| Accent | `text-cyan-400` / `bg-cyan-500` | Links, buttons, highlights |
+| Success | `#4ade80` | Status indicators, completion |
+
+---
+
+## Key Parameters
+
+### Star Generation (150 particles)
+- Size: 1-3px
+- Animation: 2-5s twinkle cycle
+- Opacity: 0.3-1.0
+
+### Dust Generation (80 particles)
+- Size: 1-3px
+- Breathe cycle: 4-8s
+- Float cycle: 30-50s
+- Opacity range: 0.1-0.8
+- Scale range: 0.5-1.5
+
+### Glass Effect
+- Background: `rgba(20, 30, 48, 0.4)`
+- Blur: 20px
+- Saturation: 150%
+- Border: 1px solid `rgba(255, 255, 255, 0.1)`
+
+---
+
+## Example Project
+
+Reference implementation: `F:/coding/Nginx/nginx-1.26.3/html/index.html`
+
+---
+
+## Tips
+
+1. **Z-index layering**: Background elements use `z-index: 0`, content uses `z-index: 10`
+2. **Pointer events**: Background particles have `pointer-events: none` to prevent interaction blocking
+3. **Performance**: Use `transform` and `opacity` for animations to leverage GPU acceleration
+4. **Contrast**: Always use `text-white` or bright colors on dark glass backgrounds for readability
